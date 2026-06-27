@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Epic Barber Shop NYC | Midtown's Premier Barbershop Since 1992</title>
+<meta name="description" content="Expert haircuts, hot towel shaves, beard trims and fades in Midtown Manhattan. NYC Since 1992. 4.7 stars · 773 Google reviews. Book now.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#0c0b09;
+  --warm:#1a1712;
+  --card:#201e1a;
+  --gold:#b8924a;
+  --gold2:#d4a85c;
+  --cream:#f5ede0;
+  --cream2:#ede0cc;
+  --white:#faf8f4;
+  --muted:#7a6f60;
+  --border:rgba(184,146,74,0.18);
+  --green:#3d8b5e;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--ink);color:var(--cream);line-height:1.6;overflow-x:hidden}
+img{display:block;width:100%;object-fit:cover}
+
+/* ─── NAV ─── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 56px;height:68px;display:flex;align-items:center;justify-content:space-between;transition:background .4s,border .4s}
+nav.scrolled{background:rgba(12,11,9,0.96);backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none}
+.nav-monogram{width:44px;height:44px;border:1.5px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;color:var(--gold);letter-spacing:1px}
+.nav-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--white);letter-spacing:.5px}
+.nav-name span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.8px;text-transform:uppercase;color:rgba(245,237,224,.6);transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--ink);padding:10px 26px;border-radius:1px;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--gold2)}
+
+/* ─── HERO ─── */
+.hero{position:relative;height:100vh;min-height:700px;display:flex;align-items:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(12,11,9,.3) 0%,rgba(12,11,9,.15) 40%,rgba(12,11,9,.75) 75%,rgba(12,11,9,1) 100%);z-index:1}
+.hero-content{position:relative;z-index:2;width:100%;padding:0 56px 80px;display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:48px}
+.hero-left{}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.hero-tag::before{content:'';width:28px;height:1px;background:var(--gold)}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:84px;font-weight:700;line-height:.95;letter-spacing:-2px;color:var(--white);margin-bottom:28px}
+.hero h1 em{display:block;font-style:italic;color:var(--gold)}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-gold{background:var(--gold);color:var(--ink);padding:15px 38px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-radius:1px;transition:all .2s;display:inline-block}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--white);padding:15px 38px;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border:1px solid rgba(245,237,224,.35);border-radius:1px;transition:all .2s;display:inline-block}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.hero-right{display:flex;flex-direction:column;gap:14px;align-items:flex-end}
+.hero-stat-row{display:flex;gap:10px}
+.hero-stat{background:rgba(32,30,26,.85);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:2px;padding:18px 24px;text-align:center;min-width:100px}
+.hstat-val{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:var(--gold);line-height:1}
+.hstat-lbl{font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:rgba(245,237,224,.45);margin-top:4px}
+.hero-open-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(32,30,26,.9);border:1px solid rgba(61,139,94,.3);border-radius:100px;padding:8px 18px;font-size:12px;font-weight:500;color:var(--green)}
+.hero-open-pill::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ─── TICKER ─── */
+.ticker{background:var(--gold);overflow:hidden;padding:13px 0}
+.ticker-track{display:inline-flex;white-space:nowrap;animation:ticker 30s linear infinite;gap:0}
+.ticker-item{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink);padding:0 36px}
+.ticker-dot{width:4px;height:4px;border-radius:50%;background:rgba(12,11,9,.35)}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ─── SECTIONS ─── */
+.section{padding:110px 56px}
+.sec-inner{max-width:1220px;margin:0 auto}
+.sec-eyebrow{font-size:10px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:14px}
+.sec-eyebrow::after{content:'';width:36px;height:1px;background:var(--gold);opacity:.5}
+.sec-headline{font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:700;line-height:1.05;letter-spacing:-.5px;color:var(--white)}
+.sec-headline em{font-style:italic;color:var(--gold)}
+.sec-body{font-size:16px;color:rgba(245,237,224,.55);line-height:1.85;max-width:500px;margin-top:14px}
+
+/* ─── PHOTO GRID ─── */
+.photo-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:auto;gap:6px;margin-top:64px}
+.pg-1{grid-column:1/6;grid-row:1/2;aspect-ratio:4/3}
+.pg-2{grid-column:6/9;grid-row:1/2;aspect-ratio:3/4}
+.pg-3{grid-column:9/13;grid-row:1/2;aspect-ratio:4/3}
+.pg-4{grid-column:1/5;grid-row:2/3;aspect-ratio:4/3}
+.pg-5{grid-column:5/9;grid-row:2/3;aspect-ratio:1/1}
+.pg-6{grid-column:9/13;grid-row:2/3;aspect-ratio:4/3}
+.photo-cell{overflow:hidden;border-radius:2px}
+.photo-cell img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.photo-cell:hover img{transform:scale(1.04)}
+
+/* ─── SERVICES ─── */
+.srv-sec{background:var(--warm)}
+.srv-split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:72px}
+.srv-left img{width:100%;height:580px;object-fit:cover;border-radius:2px}
+.srv-list{display:flex;flex-direction:column;gap:0}
+.srv-item{display:flex;align-items:start;gap:20px;padding:26px 0;border-bottom:1px solid var(--border)}
+.srv-item:first-child{padding-top:0}
+.srv-item:last-child{border-bottom:none}
+.srv-num{font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--gold);opacity:.7;font-weight:600;flex-shrink:0;width:24px;margin-top:3px}
+.srv-info{flex:1}
+.srv-name{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--white);margin-bottom:4px}
+.srv-desc{font-size:13px;color:rgba(245,237,224,.5);line-height:1.7}
+.srv-price{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;color:var(--gold);flex-shrink:0;margin-top:2px}
+
+/* ─── PRICE TABLE ─── */
+.price-table{margin-top:64px;border:1px solid var(--border);border-radius:2px;overflow:hidden}
+.pt-row{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:24px;padding:20px 32px;border-bottom:1px solid var(--border);transition:background .2s}
+.pt-row:last-child{border-bottom:none}
+.pt-row:hover{background:rgba(184,146,74,.04)}
+.pt-row.pt-head{background:var(--card);padding:12px 32px}
+.pt-row.pt-head .pt-service{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.pt-row.pt-head .pt-price{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.pt-row.pt-feat{background:rgba(184,146,74,.06)}
+.pt-service{font-size:16px;font-weight:500;color:var(--white)}
+.pt-desc{font-size:12px;color:var(--muted);margin-top:3px}
+.pt-price{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--gold);text-align:right;white-space:nowrap}
+.pt-book{background:transparent;border:1px solid var(--border);color:var(--gold);padding:8px 18px;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;border-radius:1px;transition:all .2s;text-decoration:none;white-space:nowrap}
+.pt-book:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+
+/* ─── GALLERY MASONRY ─── */
+.gallery-grid{columns:4;gap:6px;margin-top:64px}
+.gallery-grid .gi{break-inside:avoid;margin-bottom:6px;overflow:hidden;border-radius:2px}
+.gallery-grid .gi img{width:100%;display:block;transition:transform .5s ease}
+.gallery-grid .gi:hover img{transform:scale(1.04)}
+
+/* ─── REVIEWS ─── */
+.reviews-sec{background:var(--warm)}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:64px}
+.rev-card{background:var(--card);border:1px solid var(--border);border-radius:2px;padding:30px}
+.rev-stars{letter-spacing:2px;color:var(--gold);font-size:13px;margin-bottom:16px}
+.rev-quote{font-family:'Cormorant Garamond',serif;font-size:19px;font-style:italic;color:rgba(245,237,224,.85);line-height:1.6;margin-bottom:20px}
+.rev-author{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--border)}
+.rev-av{width:36px;height:36px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:14px;color:var(--ink);flex-shrink:0}
+.rev-nm{font-size:13px;font-weight:600;color:var(--white)}
+.rev-src{font-size:11px;color:var(--muted);margin-top:2px}
+.rev-total{margin-top:48px;display:grid;grid-template-columns:repeat(5,1fr);gap:2px}
+.rt-item{background:var(--card);padding:28px;text-align:center;border:1px solid var(--border)}
+.rt-num{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;color:var(--gold);line-height:1}
+.rt-lbl{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:6px}
+
+/* ─── APPOINTMENT ─── */
+.appt-sec{background:var(--ink)}
+.appt-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:72px}
+.appt-img{width:100%;height:100%;min-height:500px;object-fit:cover;border-radius:2px}
+.appt-form{background:var(--card);border:1px solid var(--border);border-radius:2px;padding:40px}
+.af-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;color:var(--white);margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.form-row.full{grid-template-columns:1fr}
+.flabel{display:block;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.finput,.fselect{width:100%;background:var(--warm);border:1px solid var(--border);border-radius:1px;padding:12px 16px;font-size:14px;color:var(--white);font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;-webkit-appearance:none}
+.finput:focus,.fselect:focus{border-color:var(--gold)}
+.fselect option{background:var(--warm)}
+.fsubmit{width:100%;background:var(--gold);color:var(--ink);border:none;border-radius:1px;padding:16px;font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .2s;margin-top:8px}
+.fsubmit:hover{background:var(--gold2)}
+.f-or{text-align:center;font-size:11px;color:var(--muted);margin:14px 0;position:relative}
+.f-or::before,.f-or::after{content:'';position:absolute;top:50%;width:38%;height:1px;background:var(--border)}
+.f-or::before{left:0}
+.f-or::after{right:0}
+.fcall{display:block;text-align:center;border:1px solid var(--border);border-radius:1px;padding:14px;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(245,237,224,.6);text-decoration:none;transition:all .2s}
+.fcall:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ─── INFO ITEMS ─── */
+.info-items{display:flex;flex-direction:column;gap:22px;margin-top:32px}
+.info-item{display:flex;align-items:flex-start;gap:16px}
+.info-icon{width:42px;height:42px;border:1px solid var(--border);border-radius:1px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;background:var(--card)}
+.info-lbl{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.info-val{font-size:14px;color:rgba(245,237,224,.75);line-height:1.7}
+
+/* ─── MAP ─── */
+.map-sec{background:var(--warm)}
+.map-wrap{margin-top:56px;display:grid;grid-template-columns:1.2fr 1fr;gap:6px}
+.map-embed{width:100%;height:420px;filter:grayscale(80%) sepia(20%);border:none;border-radius:2px}
+.map-details{background:var(--card);border:1px solid var(--border);border-radius:2px;padding:48px;display:flex;flex-direction:column;gap:24px;justify-content:center}
+.hours-list{display:flex;flex-direction:column;gap:8px}
+.h-row{display:flex;justify-content:space-between;font-size:13px;padding:6px 0;border-bottom:1px solid rgba(184,146,74,.08)}
+.h-row:last-child{border-bottom:none}
+.h-day{color:var(--muted)}
+.h-time{color:var(--cream);font-weight:500}
+
+/* ─── FOOTER ─── */
+footer{background:var(--ink);border-top:1px solid var(--border);padding:64px 56px 32px}
+.footer-inner{max-width:1220px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:60px;margin-bottom:56px}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--white);margin-bottom:14px}
+.footer-brand span{color:var(--gold)}
+.footer-desc{font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:24px}
+.footer-socials{display:flex;gap:10px}
+.fsoc{width:36px;height:36px;border:1px solid var(--border);border-radius:1px;display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--muted);text-decoration:none;transition:all .2s}
+.fsoc:hover{border-color:var(--gold);color:var(--gold)}
+.footer-col h4{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.flinks{list-style:none;display:flex;flex-direction:column;gap:11px}
+.flinks a{text-decoration:none;font-size:13px;color:var(--muted);transition:color .2s}
+.flinks a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.fcopy{font-size:12px;color:rgba(122,111,96,.6)}
+.fest{font-family:'Cormorant Garamond',serif;font-size:13px;color:rgba(184,146,74,.5);letter-spacing:2px}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:960px){
+  nav{padding:0 20px}
+  .nav-links,.nav-cta{display:none}
+  .hero-content{grid-template-columns:1fr;padding:0 20px 60px}
+  .hero h1{font-size:52px}
+  .hero-right{align-items:flex-start}
+  .section{padding:72px 20px}
+  .photo-grid{grid-template-columns:1fr 1fr;gap:4px}
+  .pg-1,.pg-2,.pg-3,.pg-4,.pg-5,.pg-6{grid-column:auto;grid-row:auto;aspect-ratio:4/3}
+  .srv-split,.appt-layout,.map-wrap,.footer-grid{grid-template-columns:1fr}
+  .reviews-grid,.rev-total{grid-template-columns:1fr}
+  .gallery-grid{columns:2}
+  .rt-item{grid-column:span 1}
+  .rev-total{grid-template-columns:repeat(2,1fr)}
+  footer{padding:48px 20px 24px}
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <div class="nav-monogram">EB</div>
+    <span class="nav-name"><span>Epic</span> Barber Shop</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#location">Location</a></li>
+  </ul>
+  <a href="#appointment" class="nav-cta">Book Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://www.epicbarbershopnyc.com/wp-content/uploads/2022/06/male-barber-cutting-hair-of-customer-in-barber-sho-2021-08-29-11-20-17-utc-1.jpg" alt="Epic Barber Shop NYC" loading="eager" />
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-tag">NYC Since 1992</div>
+      <h1>The Chair.<br>The Craft.<br><em>The Cut.</em></h1>
+      <div class="hero-btns">
+        <a href="#appointment" class="btn-gold">Book Your Chair</a>
+        <a href="tel:+12123540083" class="btn-ghost">📞 212-354-0083</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-stat-row">
+        <div class="hero-stat">
+          <div class="hstat-val">4.7</div>
+          <div class="hstat-lbl">Google Rating</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hstat-val">773</div>
+          <div class="hstat-lbl">Reviews</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hstat-val">30+</div>
+          <div class="hstat-lbl">Years NYC</div>
+        </div>
+      </div>
+      <div class="hero-open-pill">Open Now · Closes 8 PM</div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item">Expert Haircuts<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Hot Towel Shaves<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Beard Trims<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Precision Fades<span class="ticker-dot"></span></span>
+    <span class="ticker-item">NYC Since 1992<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Midtown Manhattan<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Family Barbershop<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Walk-Ins Welcome<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Expert Haircuts<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Hot Towel Shaves<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Beard Trims<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Precision Fades<span class="ticker-dot"></span></span>
+    <span class="ticker-item">NYC Since 1992<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Midtown Manhattan<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Family Barbershop<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Walk-Ins Welcome<span class="ticker-dot"></span></span>
+  </div>
+</div>
+
+<!-- PHOTO GRID -->
+<section class="section" id="gallery" style="background:var(--ink);padding-bottom:0">
+  <div class="sec-inner">
+    <div class="sec-eyebrow">Our Work</div>
+    <h2 class="sec-headline">Precision in <em>Every Cut</em></h2>
+    <p class="sec-body">From classic styles to contemporary fades — every client leaves looking sharper than they walked in.</p>
+
+    <div class="photo-grid">
+      <div class="photo-cell pg-1"><img src="https://www.epicbarbershopnyc.com/wp-content/uploads/2025/04/hairCare-1.jpg" alt="Haircut" loading="lazy" /></div>
+      <div class="photo-cell pg-2"><img src="https://www.epicbarbershopnyc.com/wp-content/uploads/2025/04/shave.jpg" alt="Hot Shave" loading="lazy" /></div>
+      <div class="photo-cell pg-3"><img src="https://www.epicbarbershopnyc.com/wp-content/uploads/2025/04/9f22a0ee3562a8f4d1298fc7592704b6.jpg" alt="Beard Trim" loading="lazy" /></div>
+      <div class="photo-cell pg-4"><img src="https://www.epicbarbershopnyc.com/wp-content/uploads/2025/04/35582aca6a1b40f1b7a54037875ee4bd-scaled-1.jpg" alt="Fade" loading="lazy" /></div>
+      <div class="photo-cell pg-5"><img src="https://www.epicbarbershopnyc.com/wp-content/uploads/2025/04/skillful-barber-carefully-cutting-a-beard-of-clien-2021-08-29-11-43-03-utc-2-1.jpg" alt="Beard" loading="lazy" /></div>
+      <div class="photo-cell pg-6"><img src="https://www.epicbarbershopnyc.com/wp-content/uploads/2025/04/new.jpg" alt="Cut" loading="lazy" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY STRIP -->
+<section class="section" style="background:var(--ink);padding-top:6px">
+  <div class="sec-inner">
+    <div class="gallery-grid">
+      <div class="gi"><img src="https://www.epicbarbershopnyc.com/wp-content/uploads/2022/06/thank-you-for-quality-haircut-2021-09-02-03-20-59-utc.png" alt="Quality haircut" loading="lazy" /></div>
+      <div class="gi"><img src="https://www.epicbarbershopnyc.com/wp-content/uploads/2022/04/africa-1.jpg" alt="Barber" loading="lazy" /></div>
+      <div class="gi"><img src="https://www.epicbarbershopnyc.com/wp-content/uploads/2025/04/large_6.jpg" alt="Style" loading="lazy" /></div>
+      <div class="gi"><img src="https://www.epicbarbershopnyc.com/wp-content/uploads/2022/04/01_Image-395x522-1.png" alt="Haircut" loading="lazy" /></div>
+      <div class="gi"><img src="https://www.epicbarbershopnyc.com/wp-content/uploads/2022/04/asdasdasdasdasda.jpg" alt="Cut" loading="lazy" /></div>
+      <div class="gi"><img src="https://www.epicbarbershopnyc.com/wp-content/uploads/2022/06/male-barber-cutting-hair-of-customer-in-barber-sho-2021-08-29-11-20-17-utc-1.jpg" alt="Barber shop" loading="lazy" /></div>
+      <div class="gi"><img src="https://www.epicbarbershopnyc.com/wp-content/uploads/2025/04/hairCare-1.jpg" alt="Hair care" loading="lazy" /></div>
+      <div class="gi"><img src="https://www.epicbarbershopnyc.com/wp-content/uploads/2025/04/shave.jpg" alt="Shave" loading="lazy" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section srv-sec" id="services">
+  <div class="sec-inner">
+    <div class="sec-eyebrow">Services</div>
+    <h2 class="sec-headline">What We <em>Offer</em></h2>
+
+    <div class="srv-split">
+      <div class="srv-left">
+        <img src="https://www.epicbarbershopnyc.com/wp-content/uploads/2025/04/skillful-barber-carefully-cutting-a-beard-of-clien-2021-08-29-11-43-03-utc-2-1.jpg" alt="Barber at work" />
+      </div>
+      <div class="srv-list">
+        <div class="srv-item">
+          <span class="srv-num">01</span>
+          <div class="srv-info">
+            <div class="srv-name">Haircut</div>
+            <div class="srv-desc">Any style, long or short. Classic cuts, modern trends, every texture and type handled with precision.</div>
+          </div>
+          <div class="srv-price">$45</div>
+        </div>
+        <div class="srv-item">
+          <span class="srv-num">02</span>
+          <div class="srv-info">
+            <div class="srv-name">Hot Towel Shave</div>
+            <div class="srv-desc">Face or head. The definitive barbershop experience — warm towel, smooth blade, clean finish.</div>
+          </div>
+          <div class="srv-price">$45</div>
+        </div>
+        <div class="srv-item">
+          <span class="srv-num">03</span>
+          <div class="srv-info">
+            <div class="srv-name">Beard Trim</div>
+            <div class="srv-desc">Clipper face shave or beard sculpting — we shape, define, and groom to your exact style.</div>
+          </div>
+          <div class="srv-price">$35</div>
+        </div>
+        <div class="srv-item">
+          <span class="srv-num">04</span>
+          <div class="srv-info">
+            <div class="srv-name">Fades</div>
+            <div class="srv-desc">Fresh, trendy fades executed with expert hands. Low fade, mid fade, high fade — perfectly blended every time.</div>
+          </div>
+          <div class="srv-price">$45</div>
+        </div>
+        <div class="srv-item">
+          <span class="srv-num">05</span>
+          <div class="srv-info">
+            <div class="srv-name">Shape Up / Hairline</div>
+            <div class="srv-desc">Precise edge work and hairline cleanup to keep you sharp between appointments.</div>
+          </div>
+          <div class="srv-price">$15</div>
+        </div>
+        <div class="srv-item">
+          <span class="srv-num">06</span>
+          <div class="srv-info">
+            <div class="srv-name">Buzz Cut</div>
+            <div class="srv-desc">Clean, bold, effortless. A precision buzz cut dialled to the perfect length every time.</div>
+          </div>
+          <div class="srv-price">$35</div>
+        </div>
+        <div class="srv-item">
+          <span class="srv-num">07</span>
+          <div class="srv-info">
+            <div class="srv-name">Senior Citizen</div>
+            <div class="srv-desc">A comfortable, unhurried experience with the same expert hands that have kept NYC sharp for thirty years.</div>
+          </div>
+          <div class="srv-price">$35</div>
+        </div>
+        <div class="srv-item">
+          <span class="srv-num">08</span>
+          <div class="srv-info">
+            <div class="srv-name">Hair Wash</div>
+            <div class="srv-desc">Rejuvenating wash with quality shampoo — dirt-free, soft, and fresh every time.</div>
+          </div>
+          <div class="srv-price">$5</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING TABLE -->
+<section class="section" id="pricing" style="background:var(--ink)">
+  <div class="sec-inner">
+    <div class="sec-eyebrow">Pricing</div>
+    <h2 class="sec-headline">Honest Prices.<br><em>No Surprises.</em></h2>
+    <p class="sec-body">Every service performed by experienced barbers. No hidden fees. Walk in or book ahead.</p>
+
+    <div class="price-table">
+      <div class="pt-row pt-head">
+        <div class="pt-service">Service</div>
+        <div class="pt-price" style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-family:'DM Sans',sans-serif">Price</div>
+        <div></div>
+      </div>
+      <div class="pt-row pt-feat">
+        <div><div class="pt-service">Haircut</div><div class="pt-desc">Any style — long or short, classic or trendy</div></div>
+        <div class="pt-price">$45</div>
+        <a href="#appointment" class="pt-book">Book</a>
+      </div>
+      <div class="pt-row pt-feat">
+        <div><div class="pt-service">Hot Towel Shave</div><div class="pt-desc">Face or head — the classic barbershop experience</div></div>
+        <div class="pt-price">$45</div>
+        <a href="#appointment" class="pt-book">Book</a>
+      </div>
+      <div class="pt-row">
+        <div><div class="pt-service">Beard Trim / Clipper Face Shave</div><div class="pt-desc">Shape and groom to your desired style</div></div>
+        <div class="pt-price">$35</div>
+        <a href="#appointment" class="pt-book">Book</a>
+      </div>
+      <div class="pt-row">
+        <div><div class="pt-service">Buzz Cut</div><div class="pt-desc">Clean, bold, and precision blended</div></div>
+        <div class="pt-price">$35</div>
+        <a href="#appointment" class="pt-book">Book</a>
+      </div>
+      <div class="pt-row">
+        <div><div class="pt-service">Senior Citizen</div><div class="pt-desc">Comfortable, unhurried expert service</div></div>
+        <div class="pt-price">$35</div>
+        <a href="#appointment" class="pt-book">Book</a>
+      </div>
+      <div class="pt-row">
+        <div><div class="pt-service">Shape Up / Hairline</div><div class="pt-desc">Precise edge and hairline cleanup</div></div>
+        <div class="pt-price">$15</div>
+        <a href="#appointment" class="pt-book">Book</a>
+      </div>
+      <div class="pt-row">
+        <div><div class="pt-service">Hair Wash</div><div class="pt-desc">Rejuvenating wash with quality shampoo</div></div>
+        <div class="pt-price">$5</div>
+        <a href="#appointment" class="pt-book">Book</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section reviews-sec" id="reviews">
+  <div class="sec-inner">
+    <div class="sec-eyebrow">Reviews</div>
+    <h2 class="sec-headline">What New York <em>Says</em></h2>
+
+    <div class="reviews-grid">
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <div class="rev-quote">Best barbershop in Midtown. Mansoor gave me the cleanest fade I've had in years. The hot towel shave is absolutely worth every dollar.</div>
+        <div class="rev-author"><div class="rev-av">JR</div><div><div class="rev-nm">James R.</div><div class="rev-src">Google · 5 stars</div></div></div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <div class="rev-quote">Been coming here for three years. They know exactly what you want after the first visit. Fair prices, clean shop, always fit you in.</div>
+        <div class="rev-author"><div class="rev-av">MT</div><div><div class="rev-nm">Michael T.</div><div class="rev-src">Google · 5 stars</div></div></div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <div class="rev-quote">Ibrahim is a wizard with scissors. Walked in looking rough and walked out looking sharp. This is what a real barbershop should feel like.</div>
+        <div class="rev-author"><div class="rev-av">DK</div><div><div class="rev-nm">David K.</div><div class="rev-src">Yelp · 5 stars</div></div></div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <div class="rev-quote">Took my son for his first proper cut. Nabeel was incredibly patient and made him feel at ease. The result was perfect. We're regulars now.</div>
+        <div class="rev-author"><div class="rev-av">SC</div><div><div class="rev-nm">Sarah C.</div><div class="rev-src">Google · 5 stars</div></div></div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <div class="rev-quote">The hot towel shave here is unmatched anywhere in the city. Old school technique, modern precision. I leave feeling like a new man every time.</div>
+        <div class="rev-author"><div class="rev-av">AL</div><div><div class="rev-nm">Alex L.</div><div class="rev-src">Google · 5 stars</div></div></div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★☆</div>
+        <div class="rev-quote">Solid barbershop right in Midtown. Great barbers, reasonable prices, convenient location. The beard trim alone is worth the trip.</div>
+        <div class="rev-author"><div class="rev-av">RB</div><div><div class="rev-nm">Robert B.</div><div class="rev-src">Yelp · 4 stars</div></div></div>
+      </div>
+    </div>
+
+    <div class="rev-total">
+      <div class="rt-item"><div class="rt-num">4.7</div><div class="rt-lbl">Google Rating</div></div>
+      <div class="rt-item"><div class="rt-num">773</div><div class="rt-lbl">Google Reviews</div></div>
+      <div class="rt-item"><div class="rt-num">4.4</div><div class="rt-lbl">Yelp Rating</div></div>
+      <div class="rt-item"><div class="rt-num">85+</div><div class="rt-lbl">Yelp Reviews</div></div>
+      <div class="rt-item"><div class="rt-num">100%</div><div class="rt-lbl">Response Rate</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- APPOINTMENT -->
+<section class="section appt-sec" id="appointment">
+  <div class="sec-inner">
+    <div class="sec-eyebrow">Book Now</div>
+    <h2 class="sec-headline">Reserve Your <em>Chair</em></h2>
+
+    <div class="appt-layout">
+      <div>
+        <img class="appt-img" src="https://www.epicbarbershopnyc.com/wp-content/uploads/2025/04/hairCare-1.jpg" alt="Book appointment" />
+        <div class="info-items" style="margin-top:32px">
+          <div class="info-item">
+            <div class="info-icon">📍</div>
+            <div><div class="info-lbl">Address</div><div class="info-val">1026 6th Ave, Suite #202, 2nd Floor<br>New York, NY 10018 · Midtown Manhattan</div></div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">🕐</div>
+            <div><div class="info-lbl">Hours</div><div class="info-val">Monday – Sunday · 9:00 AM – 8:00 PM</div></div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">📞</div>
+            <div><div class="info-lbl">Phone</div><div class="info-val"><a href="tel:+12123540083" style="color:var(--gold);text-decoration:none">+1 212-354-0083</a></div></div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">📸</div>
+            <div><div class="info-lbl">Instagram</div><div class="info-val"><a href="https://instagram.com/epicbarbershopnyc" target="_blank" style="color:var(--gold);text-decoration:none">@epicbarbershopnyc</a></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="appt-form">
+        <div class="af-title">Book an Appointment</div>
+        <div class="form-row">
+          <div><label class="flabel">First Name</label><input class="finput" placeholder="John" /></div>
+          <div><label class="flabel">Last Name</label><input class="finput" placeholder="Smith" /></div>
+        </div>
+        <div class="form-row full">
+          <div><label class="flabel">Phone Number</label><input class="finput" placeholder="+1 (212) 000-0000" type="tel" /></div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label class="flabel">Select Barber</label>
+            <select class="fselect">
+              <option>Anyone Available</option>
+              <option>Mansoor</option>
+              <option>Ibrahim</option>
+              <option>Nabeel</option>
+            </select>
+          </div>
+          <div>
+            <label class="flabel">Select Service</label>
+            <select class="fselect">
+              <option>Haircut — $45</option>
+              <option>Hot Towel Shave — $45</option>
+              <option>Beard Trim — $35</option>
+              <option>Haircut + Hot Shave</option>
+              <option>Shape Up / Hairline — $15</option>
+              <option>Buzz Cut — $35</option>
+              <option>Senior Citizen — $35</option>
+              <option>Hair Wash — $5</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div><label class="flabel">Date</label><input class="finput" type="date" /></div>
+          <div>
+            <label class="flabel">Time</label>
+            <select class="fselect">
+              <option>9:00 AM</option><option>10:00 AM</option><option>11:00 AM</option>
+              <option>12:00 PM</option><option>1:00 PM</option><option>2:00 PM</option>
+              <option>3:00 PM</option><option>4:00 PM</option><option>5:00 PM</option>
+              <option>6:00 PM</option><option>7:00 PM</option>
+            </select>
+          </div>
+        </div>
+        <button class="fsubmit" onclick="submitBooking()">Confirm Appointment</button>
+        <div class="f-or">or call directly</div>
+        <a href="tel:+12123540083" class="fcall">📞 +1 212-354-0083</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="section map-sec" id="location">
+  <div class="sec-inner">
+    <div class="sec-eyebrow">Find Us</div>
+    <h2 class="sec-headline">Heart of <em>Midtown</em></h2>
+    <p class="sec-body">Steps from Bryant Park and Herald Square. Easy access by subway, bus, or on foot.</p>
+
+    <div class="map-wrap">
+      <iframe class="map-embed"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.4!2d-73.9875!3d40.7508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259abe0f31e5b%3A0x2bed29893d2b4e8f!2s1026%206th%20Ave%2C%20New%20York%2C%20NY%2010018!5e0!3m2!1sen!2sus!4v1234"
+        allowfullscreen loading="lazy"></iframe>
+      <div class="map-details">
+        <div>
+          <div class="info-lbl">Address</div>
+          <div class="info-val" style="margin-top:6px">1026 6th Avenue, Suite #202<br>2nd Floor, New York, NY 10018<br>Between W 38th & W 39th Street</div>
+        </div>
+        <div>
+          <div class="info-lbl" style="margin-bottom:12px">Hours</div>
+          <div class="hours-list">
+            <div class="h-row"><span class="h-day">Monday</span><span class="h-time">9:00 AM – 8:00 PM</span></div>
+            <div class="h-row"><span class="h-day">Tuesday</span><span class="h-time">9:00 AM – 8:00 PM</span></div>
+            <div class="h-row"><span class="h-day">Wednesday</span><span class="h-time">9:00 AM – 8:00 PM</span></div>
+            <div class="h-row"><span class="h-day">Thursday</span><span class="h-time">9:00 AM – 8:00 PM</span></div>
+            <div class="h-row"><span class="h-day">Friday</span><span class="h-time">9:00 AM – 8:00 PM</span></div>
+            <div class="h-row"><span class="h-day">Saturday</span><span class="h-time">9:00 AM – 8:00 PM</span></div>
+            <div class="h-row"><span class="h-day">Sunday</span><span class="h-time">9:00 AM – 8:00 PM</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="info-lbl">Subway</div>
+          <div class="info-val" style="margin-top:6px">B D F M N Q R W trains<br>34th St – Herald Square</div>
+        </div>
+        <a href="#appointment" class="btn-gold" style="text-align:center">Book Your Chair</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><span>Epic</span> Barber Shop NYC</div>
+        <p class="footer-desc">Expert haircuts, hot towel shaves, and beard trims in Midtown Manhattan. Serving New York City since 1992. A full-service barbershop for the entire family.</p>
+        <div class="footer-socials">
+          <a href="https://instagram.com/epicbarbershopnyc" target="_blank" class="fsoc">📸</a>
+          <a href="https://x.com/EpicBarberNYC" target="_blank" class="fsoc">𝕏</a>
+          <a href="https://www.facebook.com/epicbarbershopNYC/" target="_blank" class="fsoc">𝔽</a>
+        </div>
+      </div>
+      <div>
+        <h4>Services & Pricing</h4>
+        <ul class="flinks">
+          <li><a href="#pricing">Haircut — $45</a></li>
+          <li><a href="#pricing">Hot Towel Shave — $45</a></li>
+          <li><a href="#pricing">Beard Trim — $35</a></li>
+          <li><a href="#pricing">Fades — from $45</a></li>
+          <li><a href="#pricing">Shape Up — $15</a></li>
+          <li><a href="#pricing">Buzz Cut — $35</a></li>
+          <li><a href="#pricing">Senior Citizen — $35</a></li>
+          <li><a href="#pricing">Hair Wash — $5</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul class="flinks">
+          <li><a href="#location">1026 6th Ave #202, NY 10018</a></li>
+          <li><a href="tel:+12123540083">+1 212-354-0083</a></li>
+          <li><a href="#appointment">Book Appointment</a></li>
+          <li><a href="#reviews">Read Reviews</a></li>
+          <li><a href="https://epicbarbershopnyc.com" target="_blank">epicbarbershopnyc.com</a></li>
+          <li><a href="https://instagram.com/epicbarbershopnyc" target="_blank">@epicbarbershopnyc</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="fcopy">© 2024 Epic Barber Shop NYC. All rights reserved.</div>
+      <div class="fest">Est. NYC · 1992</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll effect
+var nav = document.getElementById('navbar');
+window.addEventListener('scroll', function(){
+  if(window.scrollY > 60){ nav.classList.add('scrolled'); }
+  else{ nav.classList.remove('scrolled'); }
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',function(e){
+    var t=document.querySelector(this.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
+  });
+});
+
+// Set min date
+var di=document.querySelector('input[type="date"]');
+if(di){var td=new Date().toISOString().split('T')[0];di.min=td;di.value=td;}
+
+function submitBooking(){
+  var name=document.querySelector('.finput').value;
+  if(!name){alert('Please enter your name to confirm the booking.');return;}
+  alert('Booking confirmed! We will contact you shortly. You can also call us at +1 212-354-0083.');
+}
+
+// Intersection observer for subtle fade-in
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});
+},{threshold:0.1});
+document.querySelectorAll('.rev-card,.srv-item,.rt-item').forEach(function(el){
+  el.style.opacity='0';el.style.transform='translateY(16px)';el.style.transition='opacity .5s ease, transform .5s ease';
+  obs.observe(el);
+});
+</script>
+</body>
+</html>
